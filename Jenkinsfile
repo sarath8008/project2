@@ -3,6 +3,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
+                sh "rm -rf project2"
                 sh "git clone https://github.com/sarath8008/project2.git"
             }
         }
