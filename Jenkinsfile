@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave1' }
+    agent { label 'slave2' }
     stages {
         stage('checkout') {
             steps {
@@ -15,7 +15,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh "scp target/*.war root@172.31.16.119:/opt/apache-tomcat-11.0.3/webapps/"
+                sh "cp target/*.war root@172.31.29.198:/opt/apache-tomcat-11.0.3/webapps/"
             }
         }
     }
