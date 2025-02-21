@@ -28,14 +28,15 @@ stage('download') {
             
 withCredentials([string(credentialsId: 'jfrog-token', variable: 'JFROG_API_TOKEN')]) {
                         sh '''
-                        curl -L -u  "saratkumarpaluri@gmail.com:\${JFROG_API_TOKEN}" -o "sarath kumar-1.0.0.war" "https://trial3e0k8c.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
+                        curl -L -u  "saratkumarpaluri@gmail.com:\${JFROG_API_TOKEN}" -o "sarath_kumar-1.0.0.war" "https://trial3e0k8c.jfrog.io/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/3.1.1/hello-world-war-3.1.1.war"
                         '''
 }
             }
         }
         stage('Deploy') {
             steps {
-                sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
+               // sh "sudo cp target/*.war /opt/apache-tomcat-10.1.35/webapps/"
+                 sh "sudo cp sarath_kumar-1.0.0.war /opt/apache-tomcat-10.1.35/webapps/"
             }
         }
     }
